@@ -4,15 +4,16 @@ def group_make_ph(array) #by peter, features hashes
   # array.shuffle!
   population = array.length
   group_count = population/4
-  group_list = Hash.new([])
-
+  group_list = Array.new(group_count) {[]}#Hash.new([])
+  # p group_list
   # group_count.times do |k|
   #   group_list[k] = []
   # end
 
   population.times do |i|
     # print "#{i} #{array[i]} \n"
-    group_list[ i%group_count ] += [array[i]]
+    # p array[i], i, i%group_count
+    group_list[ i%group_count ] << array[i]
   end
 
   return group_list
